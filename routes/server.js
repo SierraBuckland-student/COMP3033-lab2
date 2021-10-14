@@ -44,9 +44,12 @@ router.get('/', (req,res,next) => {
           };        
           res.json(data).status(200); 
         }
+        else {
+          res.json('Error Message: Improper method param').status(500);
+        }
     }
     //else if there is no method query string param in url show error message
-    else if (!req.query.lastname) {
+    else if (!req.query.method) {
         console.log("Error Message: Missing method param");
         res.json('Error Message: Missing method param').status(500);
     }
